@@ -16,6 +16,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+SITE_URL = 'http://mobileoil-env-2.dkwyvj8xr5.us-west-1.elasticbeanstalk.com/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -43,14 +44,14 @@ SECRET_KEY = '+%pbhomr+91!*q^!h8wbv%yo@n_lcw577r5^&=9hvd__t+@6(^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.0.103", "127.0.0.1"]
+ALLOWED_HOSTS = ["192.168.0.103", "127.0.0.1" , 'mobileoil-env-2.dkwyvj8xr5.us-west-1.elasticbeanstalk.com']
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_REQUIRED = True   
+ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
-AUTH_USER_MODEL = "backend.User" 
+AUTH_USER_MODEL = "backend.User"
 
 BRAINTREE_MERCHANT_ID = "2fd4wz7mxsct83qw"
 BRAINTREE_PUBLIC_KEY = "c2hfj8h42c72mr2d"
@@ -182,6 +183,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+
 
 SITE_ID = 1
+
+
+
+import dj_database_url
+db_from_env = dj_database_url.conﬁg()
+DATABASES['default'].update(db_from_env)
